@@ -2,7 +2,7 @@ jest.mock('axios');
 const supertest = require('supertest');
 const axios = require('axios');
 
-const { server } = require('../src/server');
+const { server } = require('../server');
 
 const testSub = 'projects/test-project/subscriptions/test-subscription';
 

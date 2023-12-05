@@ -1,4 +1,4 @@
-const { mapToUrl } = require('../src/subscriptions');
+const { mapToUrl } = require('../subscriptions');
 
 it('can map a pubsub subscription', () => {
   process.env.TEST_SUBSCRIPTION = 'localhost:8080';

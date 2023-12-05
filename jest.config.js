@@ -3,8 +3,8 @@ module.exports = {
     "js",
     "json"
   ],
-  rootDir: ".",
-  testRegex: "__tests__",
+  rootDir: "src",
+  testRegex: ".*\\.test\\.js$",
   collectCoverage: true,
   coverageDirectory: '../coverage',
   coverageReporters: [
