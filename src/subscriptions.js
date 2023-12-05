@@ -7,7 +7,8 @@ const stripPrefix = (sub) => {
 
 const mapToUrl = (subscription) => {
   const name = stripPrefix(subscription);
-  return env[name.split('-').join('_').toUpperCase()];
+  const envName = name.split('-').join('_').toUpperCase();
+  return env[envName];
 };
 
 module.exports = {
