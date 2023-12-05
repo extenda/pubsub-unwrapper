@@ -4,9 +4,6 @@ on:
     paths-ignore:
       - "**/*.md"
 
-env:
-  IMAGE_NAME: extenda/pubsub-unwrapper
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -70,9 +67,8 @@ jobs:
       - name: Push to DockerHub
         uses: extenda/actions/docker@v0
         with:
-          image: ${{ env.IMAGE_NAME}}
-          tag: ${{ steps.release.outputs.release-tag }}
+          image: extenda/pubsub-unwrapper
+          tag: latest,${{ steps.release.outputs.release-tag }}
           registry: docker.io
-          dockerfile: Dockerfile
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ env.DOCKER_PASSWORD }}
