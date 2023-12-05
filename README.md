@@ -18,6 +18,10 @@ Available environmental variables that can be set in the application:
 
 ## :notebook_with_decorative_cover: Usage and Examples
 
+The unwrapper works by inspecting the PubSub `subscription` field, and maps it against the
+subscription names configured as environmental variables. It will strip off the project id
+and replace hyphen with lower-case; `test-subscription` becomes `TEST_SUBSCRIPTION`.
+
 ### Docker compose
 
 To set up the unwrapper within a docker compose you could use the following configuration:
