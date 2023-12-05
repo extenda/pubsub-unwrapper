@@ -42,9 +42,6 @@ jobs:
           sonar-host: https://sonarcloud.io
           service-account-key: ${{ secrets.SECRET_AUTH }}
 
-      - name: build docker
-        run: docker buildx build -t ${{ env.IMAGE_NAME }} .
-
   release:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
