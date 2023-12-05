@@ -1,9 +1,9 @@
 # pubsub-unwrapper
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=alert_status&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=coverage&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=code_smells&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=duplicated_lines_density&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=alert_status&token=b470bc3eeb211b83f4a2adfd548ac5abf2eef0e4)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=coverage&token=b470bc3eeb211b83f4a2adfd548ac5abf2eef0e4)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=code_smells&token=b470bc3eeb211b83f4a2adfd548ac5abf2eef0e4)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=duplicated_lines_density&token=b470bc3eeb211b83f4a2adfd548ac5abf2eef0e4)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
 [![WorkFlow](https://github.com/extenda/pubsub-unwrapper/actions/workflows/commit.yaml/badge.svg)](https://github.com/extenda/pubsub-unwrapper/actions)
 
 ## :wrench: Local development environment
