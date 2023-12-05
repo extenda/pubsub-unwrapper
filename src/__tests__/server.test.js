@@ -36,21 +36,21 @@ test('failing request', async () => {
   axios.post.mockImplementation(() => Promise.reject({
     response: {
       status: 400,
-      headers: {}
-    }
+      headers: {},
+    },
   }));
 
   await supertest(server)
-  .post('/unwrap')
-  .send(data)
-  .expect(400);
+    .post('/unwrap')
+    .send(data)
+    .expect(400);
 });
 
 test('fail with no response', async () => {
   axios.post.mockImplementation(() => Promise.reject({}));
 
   await supertest(server)
-  .post('/unwrap')
-  .send(data)
-  .expect(500);
+    .post('/unwrap')
+    .send(data)
+    .expect(500);
 });
