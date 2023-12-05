@@ -1,9 +1,9 @@
 # hiiretail-pubsub-unwrapper
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=alert_status&token=unset)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=coverage&token=unset)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=code_smells&token=unset)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=duplicated_lines_density&token=unset)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=alert_status&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=coverage&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=code_smells&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=duplicated_lines_density&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
 [![WorkFlow](https://github.com/extenda/hiiretail-pubsub-unwrapper/actions/workflows/commit.yaml/badge.svg)](https://github.com/extenda/hiiretail-pubsub-unwrapper/actions)
 
 ## :wrench: Local development environment
