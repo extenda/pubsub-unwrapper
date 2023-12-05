@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+cucumber-report.*
+test-results
+coverage
+
+.idea
+*.iws
+*.iml
+*.ipr
