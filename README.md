@@ -1,4 +1,4 @@
-# hiiretail-pubsub-unwrapper
+# pubsub-unwrapper
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=alert_status&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=extenda_hiiretail-pubsub-unwrapper&metric=coverage&token=b9935bd45c2c8d6d588af0898aa0e468c7d814dd)](https://sonarcloud.io/dashboard?id=extenda_hiiretail-pubsub-unwrapper)
@@ -28,7 +28,7 @@ To set up the unwrapper within a docker compose you could use the following conf
 
 ```yaml
 pubsub-unwrapper:
-  image: eu.gcr.io/extenda/hiiretail-pubsub-unwrapper
+  image: extenda/pubsub-unwrapper
   environment:
     TEST_SUBSCRIPTION: http://localhost:8080/api/v1/endpoint-of-choice
     OTHER_SUBSCRIPTION: http://localhost:8080/api/v1/other-endpoint-of-choice
@@ -51,9 +51,9 @@ Run the docker image:
 docker run -p 3000:3000 -it --rm -e TEST_SUBSCRIPTION=http://localhost:8080/api/v1/endpoint-of-choice unwrapper:latest
 ```
 
-## :construction_worker: Maintainers
-Maintainer for this project are the `architects`. Please direct questions and discussions to our official [channel](https://join.slack.com/share/enQtNjI5NzU5OTY4ODMwOC0zM2M0ZDFjOThkMWU3NzQ2MjFlZjFjNjVkNTdiNDIxNWJlNmQ3ZmI1OWJiNWNmOTMzOGEwYTViYzE3NTVhNTZj) on Slack.
-
 ## :information_desk_person: Contribution
+
 If you want to improve on the project, we appreciate feedback and contributions. But we ask of you to first follow or development environment guides.
-Pull-requests needs to be reviewed by someone from the team before changes can be merged.
+
+* Commit messages must follow [conventional commits](https://conventionalcommits.org)
+* [SonarCloud](https://sonarcloud.io/dashboard?id=extenda_structurizr-to-png) quality gates must pass for all pull requests
