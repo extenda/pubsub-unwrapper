@@ -1,0 +1,9 @@
+.eslintrc.json
+README.md
+jest.config.js
+.nvmrc
+__tests__
+.github
+node_modules
+test-results
+coverage
