@@ -18,9 +18,33 @@ Available environmental variables that can be set in the application:
 
 ## :notebook_with_decorative_cover: Usage and Examples
 
-The unwrapper works by inspecting the PubSub `subscription` field, and maps it against the
-subscription names configured as environmental variables. It will strip off the project id
-and replace hyphen with lower-case; `test-subscription` becomes `TEST_SUBSCRIPTION`.
+PubSub example request:
+```json
+{
+  "subscription": "projects/test-project/subscriptions/test-subscription",
+  "message": {
+    "data": "c29tZSBkYXRhCg==", // "some data"
+    "attributes": {
+      "content-type": "text/plain",
+      ...
+    }
+  }
+}
+```
+
+The unwrapper works by inspecting the PubSub `subscription` field of the PubSub request body, and maps it against the
+subscription names configured as environmental variables. It will strip off the project id, replace hyphens with
+underscores and finally upper-case the subscription name;
+
+`projects/test-project/subscriptions/test-subscription` becomes `TEST_SUBSCRIPTION`.\
+`projects/test-project/subscriptions/reports-1` becomes `REPORTS_1`.
+
+The data field of the request will be decoded and the contents sent as the new request body.
+
+### Content-Type
+
+The `content-type` attribute must be set on the PubSub message, or an error will be raised.
+This mimics the PubSub unwrap functionality available in cloud.
 
 ### Docker compose
 
