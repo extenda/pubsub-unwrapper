@@ -1,8 +1,8 @@
 .DS_Store
 node_modules/
 cucumber-report.*
-test-results
-coverage
+test-results/
+coverage/
 
 .idea
 *.iws
