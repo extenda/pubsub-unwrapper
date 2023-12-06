@@ -14,6 +14,10 @@ const data = {
       'content-type': 'application/json',
       'tenant-id': 'CIR7nQwtS0rA6t0S6ejd',
     },
+    message_id: '123',
+    messageId: '123',
+    publish_time: '2021-02-26T19:13:55.749Z',
+    publishTime: '2021-02-26T19:13:55.749Z',
   },
 };
 
@@ -53,7 +57,8 @@ describe('unwrap pubsub message', () => {
           headers: expect.objectContaining({
             'content-type': 'text/plain',
             'tenant-id': 'CIR7nQwtS0rA6t0S6ejd',
-            'x-goog-pubsub-content-length': '184',
+            'x-goog-pubsub-subscription-name': 'projects/test-project/subscriptions/test-subscription',
+            'x-goog-pubsub-message-id': '123',
           }),
         },
       );
@@ -76,13 +81,13 @@ describe('unwrap pubsub message', () => {
           headers: expect.objectContaining({
             'content-type': 'application/json',
             'tenant-id': 'CIR7nQwtS0rA6t0S6ejd',
-            'x-goog-pubsub-content-length': '190',
+            'x-goog-pubsub-message-id': '123',
           }),
         },
       );
   });
 
-  it('fails on missing content-type', async () => {
+  it('fails on missing content-type attribute', async () => {
     const badData = JSON.parse(JSON.stringify(data));
     delete badData.message.attributes['content-type'];
 
