@@ -18,6 +18,8 @@ module.exports = (req, res) => {
   }
 
   const headers = { ...req.headers };
+  ['content-length', 'accept-encoding', 'connection', 'host'].forEach((header) => delete headers[header]);
+
   const prefix = 'x-goog-pubsub-';
   const subscriptionHeader = `${prefix}subscription-name`;
   headers[subscriptionHeader] = subscription;
