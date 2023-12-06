@@ -65,14 +65,19 @@ pubsub-unwrapper:
 To run the service locally, you need a docker environment.\
 You will also be running a local PubSub emulator.
 
-Build the docker image:
+Build the docker image locally:
 ```bash
-docker build . -t unwrapper:latest
+docker build . -t extenda/pubsub-unwrapper:latest
+```
+
+Pull the latest docker image:
+```bash
+docker pull extenda/pubsub-unwrapper:latest
 ```
 
 Run the docker image:
 ```bash
-docker run -p 3000:3000 -it --rm -e TEST_SUBSCRIPTION=http://localhost:8080/api/v1/endpoint-of-choice unwrapper:latest
+docker run -p 3000:3000 -it --rm -e TEST_SUBSCRIPTION=http://localhost:8080/api/v1/endpoint-of-choice extenda/pubsub-unwrapper:latest
 ```
 
 ## :information_desk_person: Contribution

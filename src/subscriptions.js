@@ -1,4 +1,5 @@
-const { env } = process;
+const {hyphenToUnderscore} = require('./hyphen-replace');
+const {env} = process;
 
 const stripPrefix = (sub) => {
   const index = sub.lastIndexOf('/');
@@ -7,7 +8,7 @@ const stripPrefix = (sub) => {
 
 const mapToUrl = (subscription) => {
   const name = stripPrefix(subscription);
-  const envName = name.split('-').join('_').toUpperCase();
+  const envName = hyphenToUnderscore(name).toUpperCase();
   return env[envName];
 };
 

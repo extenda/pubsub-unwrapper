@@ -1,5 +1,6 @@
 const axios = require('axios');
-const { mapToUrl } = require('./subscriptions');
+const {mapToUrl} = require('./subscriptions');
+const {underscoreToHyphen} = require('./hyphen-replace');
 
 module.exports = (req, res) => {
   const { subscription, message } = req.body || {};
@@ -9,22 +10,32 @@ module.exports = (req, res) => {
     return;
   }
 
-  const headers = {};
-  const prefix = 'x-goog-pubsub';
-  Object.keys(req.headers).forEach((k) => {
-    const key = `${prefix}-${k}`.toLowerCase();
-    headers[key] = req.header(k);
-  });
-  Object.keys(message.attributes).forEach((k) => {
-    const key = k.toLowerCase();
-    headers[key] = message.attributes[k];
-  });
-
-  if (!headers['content-type']) {
-    console.error('Content-type header must be supplied');
+  const { attributes } = message;
+  if (!attributes['content-type']) {
+    console.error('Content-type attribute must be supplied');
     res.status(400).end();
     return;
   }
+
+  const headers = { ...req.headers };
+  ['content-length', 'accept-encoding', 'connection', 'host'].forEach((header) => delete headers[header]);
+
+  const prefix = 'x-goog-pubsub-';
+  const subscriptionHeader = `${prefix}subscription-name`;
+  headers[subscriptionHeader] = subscription;
+
+  ['message_id', 'publish_time', 'ordering_key'].forEach((k) => {
+    const headerKey = `${prefix}${underscoreToHyphen(k)}`.toLowerCase();
+    const value = message[k];
+    if (value) {
+      headers[headerKey] = value;
+    }
+  });
+
+  Object.keys(attributes).forEach((k) => {
+    const key = k.toLowerCase();
+    headers[key] = attributes[k];
+  });
 
   const data = atob(message.data);
   const url = mapToUrl(subscription);
