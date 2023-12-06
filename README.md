@@ -83,4 +83,4 @@ docker run -p 3000:3000 -it --rm -e TEST_SUBSCRIPTION=http://localhost:8080/api/
 If you want to improve on the project, we appreciate feedback and contributions. But we ask of you to first follow or development environment guides.
 
 * Commit messages must follow [conventional commits](https://conventionalcommits.org)
-* [SonarCloud](https://sonarcloud.io/dashboard?id=extenda_structurizr-to-png) quality gates must pass for all pull requests
+* [SonarCloud](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper) quality gates must pass for all pull requests
