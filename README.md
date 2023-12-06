@@ -12,9 +12,7 @@
 
 ## :nut_and_bolt: Configuration
 
-Available environmental variables that can be set in the application:
-
-* `PORT` (3000) - the exposed HTTP port.
+The service listens on local port 3000. Re-map the port to another suitable port if needed (via docker port mapping).
 
 ## :notebook_with_decorative_cover: Usage and Examples
 
