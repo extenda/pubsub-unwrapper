@@ -11,8 +11,10 @@ module.exports = (req, res) => {
   }
 
   const { attributes } = message;
-  if (!attributes['content-type']) {
+  const contentTypeKey = Object.keys(attributes).find((k) => k.toLowerCase() === 'content-type');
+  if (!contentTypeKey) {
     console.error('Content-type attribute must be supplied');
+    console.error('Attributes: ', JSON.stringify(attributes));
     res.status(400).end();
     return;
   }
@@ -39,6 +41,7 @@ module.exports = (req, res) => {
 
   const data = atob(message.data);
   const url = mapToUrl(subscription);
+  console.log(`Forwarding request to: ${url}`);
   axios.post(url, data, { headers })
     .then(() => res.end())
     .catch((err) => {

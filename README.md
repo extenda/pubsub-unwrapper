@@ -6,13 +6,15 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=extenda_pubsub-unwrapper&metric=duplicated_lines_density&token=b470bc3eeb211b83f4a2adfd548ac5abf2eef0e4)](https://sonarcloud.io/dashboard?id=extenda_pubsub-unwrapper)
 [![WorkFlow](https://github.com/extenda/pubsub-unwrapper/actions/workflows/commit.yaml/badge.svg)](https://github.com/extenda/pubsub-unwrapper/actions)
 
+This service makes it possible to unwrap messages from the PubSub emulator and forward them to an endpoint based on environment variables. This is useful when you want to test PubSub push subscriptions locally with the emulator, which doesn't support the "unwrap" feature natively.
+
 ## :wrench: Local development environment
 
-* Node 18
+* Node 22
 
 ## :nut_and_bolt: Configuration
 
-The service listens on local port 3000. Re-map the port to another suitable port if needed (via docker port mapping).
+The service listens on local port 3000 and the `/unwrap` endpoint. Re-map the port to another suitable port if needed (via docker port mapping).
 
 ## :notebook_with_decorative_cover: Usage and Examples
 
