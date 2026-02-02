@@ -8,12 +8,10 @@ app.disable('x-powered-by');
 app.use(express.json());
 app.use('/unwrap', unwrapper);
 
-const server = app.listen(port, () => console.log(`Server listening on ${port}`));
-
-process.on('SIGINT', () => {
-  server.close(() => process.exit(0));
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => console.log(`Server listening on ${port}`));
+}
 
 module.exports = {
-  server,
+  app,
 };

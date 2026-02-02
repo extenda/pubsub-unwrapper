@@ -5,20 +5,20 @@
   "main": "src/server.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server.js",
+    "start": "TEST_SUBSCRIPTION='http://localhost:8081/api/v1/promotions'  node src/server.js",
     "lint:js": "eslint \"{src,__tests__}/**/*.js\" --fix"
   },
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.6.2",
-    "express": "^4.18.2"
+    "axios": "^1.13.4",
+    "express": "^4.22.1"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import": "^2.32.0",
     "jest": "^29.7.0",
     "jest-sonar": "^0.2.16",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.4"
   }
 }

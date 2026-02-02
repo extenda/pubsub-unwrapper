@@ -8,22 +8,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Restore npm build
-        uses: ./.github/actions/restore-build
-
-      - name: Cache Sonar binary
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-sonar-binary
+      - uses: actions/setup-node@v6
         with:
-          path: /home/runner/.sonar/native-sonar-scanner
-          key: ${{ runner.os }}-cache-sonar-binary
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Lint javascript
         run: npm run lint:js
@@ -45,7 +40,7 @@ jobs:
     outputs:
       release-tag: ${{ steps.release.outputs.release-tag }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 

@@ -1,12 +1,16 @@
-FROM node:18
+FROM node:22-slim
 
 ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
-COPY . ./
+COPY package*.json ./
 
-RUN npm install --omit=dev
+RUN npm ci --omit=dev
+
+COPY src/ ./src/
+
+USER node
 
 EXPOSE 3000
 

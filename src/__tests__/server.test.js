@@ -2,7 +2,7 @@ jest.mock('axios');
 const supertest = require('supertest');
 const axios = require('axios');
 
-const { server } = require('../server');
+const { app } = require('../server');
 
 const testSub = 'projects/test-project/subscriptions/test-subscription';
 
@@ -28,12 +28,8 @@ describe('unwrap pubsub message', () => {
     axios.post.mockImplementation(() => Promise.resolve({ status: 200 }));
   });
 
-  afterEach(async () => {
-    await server.close();
-  });
-
   it('should send json payloads', async () => {
-    await supertest(server)
+    await supertest(app)
       .post('/unwrap')
       .send(data)
       .expect(200);
@@ -44,7 +40,7 @@ describe('unwrap pubsub message', () => {
     notJsonData.message.attributes['content-type'] = 'text/plain';
     notJsonData.message.data = Buffer.from('not json').toString('base64');
 
-    await supertest(server)
+    await supertest(app)
       .post('/unwrap')
       .send(notJsonData)
       .expect(200);
@@ -68,7 +64,7 @@ describe('unwrap pubsub message', () => {
     const notJsonData = JSON.parse(JSON.stringify(data));
     notJsonData.message.data = Buffer.from('not json').toString('base64');
 
-    await supertest(server)
+    await supertest(app)
       .post('/unwrap')
       .send(notJsonData)
       .expect(200);
@@ -91,7 +87,7 @@ describe('unwrap pubsub message', () => {
     const badData = JSON.parse(JSON.stringify(data));
     delete badData.message.attributes['content-type'];
 
-    await supertest(server)
+    await supertest(app)
       .post('/unwrap')
       .send(badData)
       .expect(400)
@@ -106,7 +102,7 @@ describe('unwrap pubsub message', () => {
       },
     }));
 
-    await supertest(server)
+    await supertest(app)
       .post('/unwrap')
       .send(data)
       .expect(400);
@@ -115,9 +111,30 @@ describe('unwrap pubsub message', () => {
   it('fails with 500 on absent error response', async () => {
     axios.post.mockImplementation(() => Promise.reject({}));
 
-    await supertest(server)
+    await supertest(app)
       .post('/unwrap')
       .send(data)
       .expect(500);
+  });
+
+  it('should accept Content-Type (case insensitive)', async () => {
+    const mixedCaseData = JSON.parse(JSON.stringify(data));
+    delete mixedCaseData.message.attributes['content-type'];
+    mixedCaseData.message.attributes['Content-Type'] = 'application/json';
+
+    await supertest(app)
+      .post('/unwrap')
+      .send(mixedCaseData)
+      .expect(200);
+
+    expect(axios.post).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.any(String),
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'content-type': 'application/json',
+        }),
+      }),
+    );
   });
 });
